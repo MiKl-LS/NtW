@@ -69,7 +69,7 @@ function handleBillion(b) {
 	return bil;
 }
 function handleTrillion(tr) {
-	if (b == 0) {
+	if (tr == 0) {
 		tri =  "";
 	} else {
 		tri = " trillion ";
@@ -185,4 +185,3 @@ function spellNumber(n) {
 	}
 	document.getElementById("output").innerHTML = output; 
 }
-
