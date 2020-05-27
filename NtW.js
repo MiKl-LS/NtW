@@ -80,6 +80,12 @@ function handleTrillion(tr) {
 function spellNumber(n) {
 	var n = document.getElementById("input").value;
 	var enu = parseInt(n);
+	// check if the number is negative.
+	ng = 0;
+	if ( enu < 0) {
+		ng = 1;
+	}
+	var enu = Math.abs(enu);
 	var n = enu.toString();
 	var l = n.length;
 	// Add cases that depend on l's length (to assign it's spelling and extension)
@@ -182,6 +188,10 @@ function spellNumber(n) {
 		default:
 			output = "unsupported length";
 			alert(output);
+	}
+	// Append "negative" to output when the original number is a negative
+	if (ng == 1) {
+		output = "negative " + output;
 	}
 	document.getElementById("output").innerHTML = output; 
 }
