@@ -16,5 +16,12 @@
 			<br> <br>
 		</div>
 		<script src="NtW.js"> </script>
+		<script>
+			// add a random number generator (rng)
+			function randomNumber() {
+				rnd = Math.floor(Math.random() * 999999999999999);
+				document.getElementById("input").value = rnd;
+				spellNumber(rnd);
+			}
 	</body>
 </html>

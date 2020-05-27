@@ -185,9 +185,4 @@ function spellNumber(n) {
 	}
 	document.getElementById("output").innerHTML = output; 
 }
-// add a random number generator (rng)
-function randomNumber() {
-	rnd = Math.floor(Math.random() * 999999999999999);
-	document.getElementById("input").value = rnd;
-	spellNumber(rnd);
-}
+
