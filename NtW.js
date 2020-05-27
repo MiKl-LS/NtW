@@ -48,7 +48,7 @@ function handleThousand(t) {
 	if (t == 0) {
 		th =  "";
 	} else {
-		th = " thousand, ";
+		th = " thousand ";
 	}
 	return th;
 }
@@ -56,7 +56,7 @@ function handleMillion(m) {
 	if (m == 0) {
 		mil =  "";
 	} else {
-		mil = " million, ";
+		mil = " million ";
 	}
 	return mil;
 }
@@ -64,7 +64,7 @@ function handleBillion(b) {
 	if (b == 0) {
 		bil =  "";
 	} else {
-		bil = " billion, ";
+		bil = " billion ";
 	}
 	return bil;
 }
@@ -72,7 +72,7 @@ function handleTrillion(tr) {
 	if (b == 0) {
 		tri =  "";
 	} else {
-		tri = " trillion, ";
+		tri = " trillion ";
 	}
 	return tri;
 }
