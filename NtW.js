@@ -37,7 +37,7 @@ function reader(n, l) {
 			final = "zero";
 			break;
 		case "NaN":
-			final = "Not a number.";
+			final = "NaN/Not a number (input a number)";
 			break;
 	}
 	return final;
@@ -79,14 +79,16 @@ function handleTrillion(tr) {
 // Create a function that uses reader()
 function spellNumber(n) {
 	var n = document.getElementById("input").value;
-	var enu = parseInt(n);
+	var nInt = parseInt(n);
+	dec = (n % 1).toFixed(2) * 100 ;
+	dec = parseInt(Math.abs(dec)).toString();
 	// check if the number is negative.
 	ng = 0;
-	if ( enu < 0) {
+	if ( nInt < 0) {
+		var nInt = Math.abs(nInt);
 		ng = 1;
 	}
-	var enu = Math.abs(enu);
-	var n = enu.toString();
+	var n = nInt.toString();
 	var l = n.length;
 	// Add cases that depend on l's length (to assign it's spelling and extension)
 	switch(l) {
@@ -192,6 +194,11 @@ function spellNumber(n) {
 	// Append "negative" to output when the original number is a negative
 	if (ng == 1) {
 		output = "negative " + output;
+	}
+	// only done when the number has a decimal
+	if ( dec > 0) {
+		decl = dec.length;
+		output = output + " and " + reader(dec,decl) + " hundredths";
 	}
 	document.getElementById("output").innerHTML = output; 
 }
