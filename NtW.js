@@ -37,7 +37,7 @@ function reader(n, l) {
 			final = "zero";
 			break;
 		case "NaN":
-			final = "Enter a number and see your result here.";
+			final = "Not a number.";
 			break;
 	}
 	return final;
