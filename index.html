@@ -9,7 +9,7 @@
 		<div class="w3-panel w3-animate-right w3-card-4 w3-container">
 			<br>
 			<h1> NtW (numbers to words) converter: </h1>
-			<input type="number" id="input" placeholder="input a number..." onkeyup="spellNumber()">
+			<input type="number" id="input" placeholder="input a number..." onkeyup="spell()">
 			<br class="w3-hide-medium w3-hide-large"> <br class="w3-hide-medium w3-hide-large">
 			<button onclick="randomNumber()" class="w3-btn w3-border w3-mobile"> random number </button>
 			<h3 id="output">Enter a number and see your result here.</h3>
@@ -21,7 +21,7 @@
 			function randomNumber() {
 				rnd = Math.floor(Math.random() * 999999999999999);
 				document.getElementById("input").value = rnd;
-				spellNumber(rnd);
+				spell(rnd);
 			}
 		</script>
 	</body>
