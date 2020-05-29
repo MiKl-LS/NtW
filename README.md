@@ -1,7 +1,7 @@
 # NtW (numbers to words)
 Spells provided numbers using JavaScript (Up to 14 digits, or a hundred trillion)
 
-## Note: This is still on beta. It's also incomplete (only processes 2 decimals only)
+## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
 
 Majority of the code is on `index.js`
 
