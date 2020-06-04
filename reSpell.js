@@ -10,6 +10,7 @@ function reader(n) {
 			return "NaN/Not a Number <i>(input <b>a number</b>)</i>";
 		break;
 	}
+	n = parseInt(n);
 	if ( n < 20) { return onesList[n]; }
 	if ( n > 19 && n < 100) {
 		n = n.toString(); onesDgt = n[1]; tensDgt = n[0];
