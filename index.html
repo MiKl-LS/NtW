@@ -8,11 +8,12 @@
 	<body>
 		<div class="w3-panel w3-animate-right w3-card-4 w3-container">
 			<br>
-			<h1 class="w3-border w3-border-black"> reSpell.js (demo) </h1>
-			<input type="number" id="input" placeholder="input a number..." onkeyup="spell()">
-			<br class="w3-hide-medium w3-hide-large"> <br class="w3-hide-medium w3-hide-large"> 
+			<h1 class="w3-border w3-border-black"> <i>re<span><b>Spell</b></span></i>.js (demo) </h1>
+			<input id="input" maxlength="18" placeholder="input a number...">
+			<br class="w3-hide-medium w3-hide-large"> <br class="w3-hide-medium w3-hide-large">
+			<button onclick="spell()" class="w3-btn w3-border w3-border-black w3-mobile"> Spell number </button>			
 			<button onclick="randomNumber()" class="w3-btn w3-border w3-border-black w3-mobile"> random number </button>
-			<h3 id="output" class="w3-border w3-border-black w3-padding">Input a number...</h3>
+			<h3 id="output" class="w3-border w3-border-black w3-padding">Waiting for your input...</h3>
 			<br> <br>
 		</div>
 		<script src="reSpell.js"> </script>
