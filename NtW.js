@@ -5,20 +5,17 @@ function reader(n) {
 	n = parseInt(n);
 	if ( n < 20) { return onesList[n]; }
 	if ( n > 19 && n < 100) {
-		n = n.toString();
-		onesDgt = n[1]; tensDgt = n[0];
+		n = n.toString(); onesDgt = n[1]; tensDgt = n[0];
 		return tensList[tensDgt] + onesList[onesDgt];
 	}
 	if ( n > 99 && n < 1000) {
-		n = n.toString();
-		onesDgt = n[2]; tensDgt = n[1]; 
-		final = onesList[n.substr(0,1)] + " hundred" + tensList[tensDgt] + onesList[onesDgt]; 
+		n = n.toString(); onesDgt = n[2]; tensDgt = n[1]; 
+		return onesList[n.substr(0,1)] + " hundred" + tensList[tensDgt] + onesList[onesDgt]; 
 		if (tensDgt == 1) {
 			sum = parseInt(onesDgt) + 10;
-			final = onesList[n.substr(0,1)] + " hundred" + onesList[sum];
+			return onesList[n.substr(0,1)] + " hundred" + onesList[sum];
 		}
 	}
-	return final;
 }
 function spell() {
 	n = document.getElementById("input").value;
