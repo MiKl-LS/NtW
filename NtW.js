@@ -38,14 +38,15 @@ function spell() {
 		output = []
 		for (i = 0; i < places.length; i++) {
 			p = reader(places[i].toString());
-			if (p == "") {
-				// do nothing
+			if (p == "") { continue;
 			} else {
 				output.push(reader(places[i].toString())+ prefix[i]);
 			}
 		}
 		output.reverse();
- 	} else { output = reader(n,l); }
+ 	} else { 
+		output = reader(n,l);
+	}
 	if (ng == 1) { output = "negative " + output;}
 	document.getElementById("output").innerHTML =  output;
 }
