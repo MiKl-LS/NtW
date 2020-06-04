@@ -2,6 +2,14 @@ onesList = [ "", " one", " two", " three", " four", " five", " six", " seven", "
 tensList = [ "", "", " twenty", " thirty", " forty", " fifty", " sixty", " seventy", " eighty", " ninety" ]
 prefix = [ "", " thousand", " million", " billion", " trillion", " quadrillion" ]
 function reader(n) {
+	switch(n) {
+		case "0":
+			return "zero";
+		break;
+		case "NaN":
+			return "NaN/Not a Number <i>(input <b>a number</b>)</i>";
+		break;
+	}
 	n = parseInt(n);
 	if ( n < 20) { return onesList[n]; }
 	if ( n > 19 && n < 100) {
