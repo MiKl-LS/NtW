@@ -1,6 +1,6 @@
 onesList = [ "", " one", " two", " three", " four", " five", " six", " seven", " eight", " nine", " ten", " eleven", " twelve", " thirteen", " fourteen", " fifteen", " sixteen", " seventeen", " eighteen", " nineteen" ]
 tensList = [ "", "", " twenty", " thirty", " forty", " fifty", " sixty", " seventy", " eighty", " ninety" ]
-prefix = [ "", " thousand", " million", " billion", " trillion", " quadrillion", " quintillion" ]
+prefix = [ "", " thousand", " million", " billion", " trillion", " quadrillion" ]
 function reader(n) {
 	n = parseInt(n);
 	if ( n < 20) { return onesList[n]; }
@@ -17,12 +17,13 @@ function reader(n) {
 		}
 	}
 }
-function spell() {
+function spell(n) {
 	n = document.getElementById("input").value;
 	if ( parseInt(n) < 0) { n = Math.abs(parseInt(n)); ng = 1; } else {	ng = 0; }
 	n = parseInt(n).toString();
 	l = n.length;
 	if ( l > 3) {
+		output = []; places = [] // Arrays that will be stuffed with data
 		rem = l % 3;
 		switch(rem) {
 			case 1: n = "00" + n;
@@ -35,7 +36,6 @@ function spell() {
 			places[ind] = n.substr(i,3);
 		}
 		places.reverse();
-		output = []
 		for (i = 0; i < places.length; i++) {
 			p = reader(places[i].toString());
 			if (p == "") { continue;
