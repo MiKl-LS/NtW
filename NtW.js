@@ -22,6 +22,7 @@ function reader(n) {
 }
 function spell() {
 	n = document.getElementById("input").value;
+	if ( parseInt(n) < 0) { n = Math.abs(parseInt(n)); ng = 1; } else {	ng = 0; }
 	n = parseInt(n).toString();
 	l = n.length;
 	if ( l > 3) {
@@ -48,5 +49,6 @@ function spell() {
 		}
 		output.reverse();
  	} else { output = reader(n,l); }
+	if (ng == 1) { output = "negative " + output;}
 	document.getElementById("output").innerHTML =  output;
 }
