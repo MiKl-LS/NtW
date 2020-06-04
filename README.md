@@ -1,9 +1,9 @@
 # NtW (numbers to words)
-Spells provided numbers using JavaScript (Up to 14 digits, or a hundred trillion)
+Spells provided numbers using JavaScript (Up to 18 digits, or a hundred quadrillion)
 
 ## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
 
-Majority of the code is on `index.js`
+Majority of the code is on `ntw.js`
 
 For this to work on your own HTML code do the following:
 - Create an `<input>` tag and assign the id `input` to it
