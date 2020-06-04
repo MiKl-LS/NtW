@@ -1,4 +1,4 @@
-# NtW (numbers to words)
+# reSpell.js
 Spells provided numbers using JavaScript (Up to 18 digits, or a hundred quadrillion)
 
 ## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
@@ -14,4 +14,4 @@ For this to work on your own HTML code do the following:
 spell(25);
 ```
  
-A demo/preview is available at https://mikl-ls.github.io/NtW
+A demo/preview is available at https://mikl-ls.github.io/reSpell.js
