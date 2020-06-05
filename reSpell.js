@@ -28,6 +28,7 @@ function reader(n) {
 function spell(n) {
 	n = document.getElementById("input").value;
 	if ( parseInt(n) < 0) { n = Math.abs(parseInt(n)); ng = 1; } else {	ng = 0; }
+	dec = (n % 1).toFixed(2) * 100 ; dec = parseInt(Math.abs(dec)).toString();
 	n = parseInt(n).toString();
 	l = n.length;
 	if ( l > 3) {
@@ -56,5 +57,9 @@ function spell(n) {
 		output = reader(n,l);
 	}
 	if (ng == 1) { output = "negative " + output;}
+	if ( dec > 0) {
+		decl = dec.length;
+		output += " and " + reader(dec,decl) + " hundredths ";
+	}
 	document.getElementById("output").innerHTML =  output;
 }
