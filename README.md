@@ -6,12 +6,30 @@ Spells provided numbers using JavaScript (Up to 18 digits, or a hundred quadrill
 Majority of the code is on `reSpell.js`
 
 For this to work on your own HTML code do the following:
-- Create an `<input>` tag and assign the id `input` to it
-- the target output must have assigned the id `output`
-- A button or something that triggers the `spell()` function (it reads the input for the values)
-- Or you can call `spell()` with a value like this:
+
+- Link this script: (locally or from GitHub)
 ```
-spell(25);
+<script src="reSpell.js">
 ```
+```
+<script src="https://mikl-ls.github.io/reSpell.js/reSpell.js">
+```
+ - Make a function that calls the `spell()` function 
  
+ example HTML:
+ ```
+<input id="input" type="number">
+<button onclick="spell(n)"> spell </button>
+ ```
+ 
+ example JavaScript to trigger `spell()`:
+ ```
+ <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"> // load reSpell.js
+ <script>
+ function reSpell() {
+  n = document.getElementById("input").value; // gets value from an input tag with the id 'input' 	
+  document.getElementById("output").innerHTML = spell(n);
+ }
+ </script>
+ ```
 A demo/preview is available at https://mikl-ls.github.io/reSpell.js
