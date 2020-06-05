@@ -1,5 +1,5 @@
 # reSpell.js (Number Speller)
-Spells provided numbers using JavaScript (Up to 18 digits, or a hundred quadrillion)
+Spells provided numbers using JavaScript (Up to 18 digits, or a hundred quadrillion), blame floating point numbers, lol
 
 ## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
 
@@ -18,8 +18,9 @@ For this to work on your own HTML code do the following:
  
  example HTML:
  ```
+<p id="output"> Output for JS is here </p>
 <input id="input" type="number">
-<button onclick="spell(n)"> spell </button>
+<button onclick="spell(n)"> spell </button> 
  ```
  
  example JavaScript to trigger `spell()`:
