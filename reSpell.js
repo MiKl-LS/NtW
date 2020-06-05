@@ -2,64 +2,43 @@ onesList = [ "", " one", " two", " three", " four", " five", " six", " seven", "
 tensList = [ "", "", " twenty", " thirty", " forty", " fifty", " sixty", " seventy", " eighty", " ninety" ]
 prefix = [ "", " thousand", " million", " billion", " trillion", " quadrillion" ]
 function reader(n) {
-	switch(n) {
-		case "0":
-			return "zero";
-		break;
-		case "NaN":
-			return "NaN/Not a Number <i>(input <b>a number</b>)</i>";
-		break;
-	}
-	n = parseInt(n);
-	if ( n < 20) { return onesList[n]; }
-	if ( n > 19 && n < 100) {
-		n = n.toString(); onesDgt = n[1]; tensDgt = n[0];
-		return tensList[tensDgt] + onesList[onesDgt];
-	}
-	if ( n > 99 && n < 1000) {
-		n = n.toString(); onesDgt = n[2]; tensDgt = n[1]; 
-		return onesList[n.substr(0,1)] + " hundred" + tensList[tensDgt] + onesList[onesDgt]; 
-		if (tensDgt == 1) {
-			sum = parseInt(onesDgt) + 10;
-			return onesList[n.substr(0,1)] + " hundred" + onesList[sum];
-		}
-	}
+	if ( n == "0") { return "zero"; }
+	if ( n == "NaN") { return "NaN/Not a Number <i>(input <b>a number</b>)</i>" } // custom NaN can be defined
+	n = parseInt(n).toString(); l = n.length;
+	if ( l <= 2 && n < 20) { return onesList[n]; }
+	if ( l == 2 && n > 19) { return tensList[n.substr(0,1)] + onesList[n.substr(1,1)]; }
+	if ( l == 3 && n[1] == 1 ) { return onesList[n.substr(0,1)] + " hundred" + onesList[n.substr(1,2)]; }
+	if ( l == 3) { return onesList[n.substr(0,1)] + " hundred" + tensList[n.substr(1,1)] + onesList[n.substr(2,1)]; }
 }
 function spell(n) {
-	n = document.getElementById("input").value;
 	if ( parseInt(n) < 0) { n = Math.abs(parseInt(n)); ng = 1; } else {	ng = 0; }
-	dec = (n % 1).toFixed(2) * 100 ; dec = parseInt(Math.abs(dec)).toString();
+	dec = (n % 1).toFixed(2) * 100 ; parseInt(Math.abs(dec)).toString();
 	n = parseInt(n).toString();
 	l = n.length;
-	if ( l > 3) {
-		output = []; places = [] // Arrays that will be stuffed with data
-		rem = l % 3;
-		switch(rem) {
-			case 1: n = "00" + n;
-				break;
-			case 2:	n = "0" + n;
+	if ( l < 3) {
+		output = reader(n);
+ 	} else { 
+		output = []; currentValue = [] // arrays to be stuffed with data
+		if ( l > 18) { return "ERROR: Unsupported Value"; }
+		mod = l % 3; // modify the n to be divisible by 3
+		if (mod == 1) { n = "00" + n; } if (mod == 2) { n = "0" + n; }
+		l = n.length; // redefine l after modifying
+		for ( i = 0, ind = 0; i <  l; i += 3, ind++) {
+			currentValue[ind] = n.substr(i,3);
 		}
-		l = n.length;
-		var ind = 0; var places = []
-		for ( i = 0; i <  l; i += 3, ind++) {
-			places[ind] = n.substr(i,3);
-		}
-		places.reverse();
-		for (i = 0; i < places.length; i++) {
-			p = reader(places[i].toString());
-			if (p == "") { continue;
+		for (currentValue.reverse(), i = 0; i < currentValue.length; i++) {
+			e = reader(currentValue[i].toString());
+			if (e == "") { continue; // do nothing
 			} else {
-				output.push(reader(places[i].toString())+ prefix[i]);
+				output.push(reader(currentValue[i].toString())+ prefix[i]);
 			}
 		}
 		output.reverse();
- 	} else { 
-		output = reader(n,l);
 	}
 	if (ng == 1) { output = "negative " + output;}
 	if ( dec > 0) {
 		decl = dec.length;
-		output += " and " + reader(dec,decl) + " hundredths ";
+		output += " and " + reader(dec) + " hundredths ";
 	}
-	document.getElementById("output").innerHTML =  output;
+	return output;
 }
