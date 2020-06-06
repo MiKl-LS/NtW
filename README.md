@@ -25,7 +25,7 @@ For this to work on your own HTML code do the following:
  
  example JavaScript to trigger `spell()`:
  ```
- <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"> // load reSpell.js
+ <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"></script> // load reSpell.js
  <script>
  function reSpell() {
   n = document.getElementById("input").value; // gets value from an input tag with the id 'input' 	
