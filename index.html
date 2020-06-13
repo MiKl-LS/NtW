@@ -2,16 +2,16 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title> reSpell.js (Number speller) </title>
+		<title> reSpell.js (demo) </title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
-	<body>
+		<body>
 		<div class="w3-panel w3-animate-right w3-card-4 w3-container">
 			<br>
-			<h1 class="w3-border w3-border-black w3-padding"> <i>re<span><b>Spell</b></span></i>.js </h1>
+			<h1 class="w3-border w3-border-black w3-padding"> re<span><i><b>Spell</b></span></i>.js </h1>
 			<input id="input" type="number" max="999999999999999999" placeholder="input a number...">
 			<br class="w3-hide-medium w3-hide-large"> <br class="w3-hide-medium w3-hide-large">
-			<button onclick="reSpell()" class="w3-btn w3-border w3-border-black w3-mobile"> Spell number </button>
+			<button onclick="Spell()" class="w3-btn w3-border w3-border-black w3-mobile"> Spell number </button>
 			<button onclick="randomNumber()" class="w3-btn w3-border w3-border-black w3-mobile"> random number </button>
 			<h3 id="output" class="w3-border w3-border-black w3-padding">Waiting for your input...</h3>
 			<br> 
@@ -21,12 +21,11 @@
 			function randomNumber() {
 				rnd = Math.floor(Math.random() * 999999999999999999);
 				document.getElementById("input").value = rnd;
-				spell(rnd);
-				document.getElementById("output").innerHTML = spell(rnd);
+				document.getElementById("output").innerHTML = reSpell(rnd);
 			}
-			function reSpell() {
+			function Spell() {
 				n = document.getElementById("input").value;
-				document.getElementById("output").innerHTML = spell(n);
+				document.getElementById("output").innerHTML = reSpell(n);
 			}
 		</script>
 	</body>
