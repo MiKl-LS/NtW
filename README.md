@@ -14,7 +14,7 @@ For this to work on your own HTML code do the following:
 ```
 <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js">
 ```
- - Make a function that calls the `spell()` function 
+ - Make a function that calls the `reSpell()` function 
  
  example HTML:
  ```
