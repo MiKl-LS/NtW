@@ -19,7 +19,10 @@
 		<script src="reSpell.js"> </script>
 		<script>
 			function randomNumber() {
-				rnd = Math.floor(Math.random() * 999999999999999999);
+				rnd = ""; limit = Math.floor(Math.random() * 36) + 1;
+				for (i = 1; i <= limit; i++ ) {
+					rnd += Math.floor(Math.random() * 10).toString();
+				}
 				document.getElementById("input").value = rnd;
 				document.getElementById("output").innerHTML = reSpell(rnd);
 			}
