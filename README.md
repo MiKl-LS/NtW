@@ -1,5 +1,5 @@
-# reSpell.js (Number Speller)
-Spells provided numbers using JavaScript (Up to 18 digits, or a hundred quadrillion), blame floating point numbers, lol
+# reSpell.js
+Spells provided numbers using JavaScript (Up to 36 digits, or a hundred decillion), blame floating point numbers, lol
 
 ## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
 
@@ -23,7 +23,7 @@ For this to work on your own HTML code do the following:
 <button onclick="spell(n)"> spell </button> 
  ```
  
- example JavaScript to trigger `spell()`:
+ example JavaScript to trigger `reSpell()`:
  ```
  <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"></script> // load reSpell.js
  <script>
