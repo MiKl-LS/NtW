@@ -14,7 +14,7 @@ function reSpell(number) {
 	n = number;
 	l = n.length;
 	if (typeof(n) == "number") { n = n.toString(); }
-	if (parseInt(n) < 0) { n = Math.abs(n); ng = 1; } else {ng = 0;} 
+	if (parseInt(n) < 0) { n = number.replace(/-/g,""); ng = 1; } else {ng = 0;} 
 	dec = (n % 1).toFixed(2) * 100 ; dec = parseInt(Math.abs(dec)).toString(); decl = dec.length;
 	if ( l < 3) {
 		output = reader(n); 
