@@ -1,25 +1,26 @@
-function reSpell(n) {
+function reSpell(number) {
 	onesArray = [ "", " one", " two", " three", " four", " five", " six", " seven", " eight", " nine", " ten", " eleven", " twelve", " thirteen", " fourteen", " fifteen", " sixteen", " seventeen", " eighteen", " nineteen" ]
 	tensArray = [ "", "", " twenty", " thirty", " forty", " fifty", " sixty", " seventy", " eighty", " ninety" ]
-	prefixArray = [ "", " thousand", " million", " billion", " trillion", " quadrillion" ]
-	function reader(n) {
+	prefixArray = [ "", " thousand", " million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion" ]
+	function reader(n) { // heart of reSpell.js
 		if ( n == "0") { return "zero"; } // (lines 6-7) some special cases 
 		if ( n == "NaN") { return "NaN/Not a Number <i>(input <b>a number</b>)</i>" }
 		n = parseInt(n).toString(); l = n.length;
-		if ( l <= 2 && n < 20) { return onesArray[n]; }
-		if ( l == 2 && n > 19) { return tensArray[n.substr(0,1)] + onesArray[n.substr(1,1)]; }
-		if ( l == 3 && n[1] == 1 ) { return onesArray[n.substr(0,1)] + " hundred" + onesArray[n.substr(1,2)]; }
-		if ( l == 3) { return onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]; }
+		if ( l <= 2 && n < 20) { return (onesArray[n]).toString().trim(); }
+		if ( l == 2 && n > 19) { return (tensArray[n.substr(0,1)] + onesArray[n.substr(1,1)]).trim(); }
+		if ( l == 3 && n[1] == 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + onesArray[n.substr(1,2)]).trim(); }
+		if ( l == 3) { return (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]).trim(); }
 	}
+	n = number;
+	l = n.length;
+	if (typeof(n) == "number") { n = n.toString(); }
 	if (parseInt(n) < 0) { n = Math.abs(parseInt(n)); ng = 1; } else {ng = 0;} 
 	dec = (n % 1).toFixed(2) * 100 ; dec = parseInt(Math.abs(dec)).toString(); decl = dec.length;
-	n = parseInt(n).toString(); // convert n to integer to remove leading zeroes 
-	l = n.length;
-	if ( l < 3) { 
-		output = reader(n);
- 	} else {
+	if ( l < 3) {
+		output = reader(n); 
+	} else {
 		output = []; currentValue = []
-		if ( l > 18) { return "ERROR: Unsupported Length"; } 
+		if ( l > 36) { return "ERROR: Unsupported Length"; } 
 		modulus = l % 3; // modify the n to be divisible by 3
 		if (modulus == 1) { n = "00" + n; } else if (modulus == 2) { n = "0" + n; }
 		l = n.length; // redefine l after modifying
@@ -33,8 +34,8 @@ function reSpell(n) {
 				output.push(val + prefixArray[i]);
 			}
 		}
-		output.reverse(); // unreverse the reversed output
+		output = output.reverse().toString().replace(/,/g," "); // reverse the reversed output & remove the commas
 	} // append some stuff when needed
-	if (ng == 1) { output = "negative " + output;} else if (dec > 0) { output += " and " + reader(dec) + " hundredths "; }
-	return output.toString().trim(); // trim() to remove unecessary whitespace (cuz the arrays)
+	if (ng == 1) { output = "negative " + output;} else if (dec > 0) {output += " and " + reader(dec) + " hundredths "; }
+	return output; 
 }
