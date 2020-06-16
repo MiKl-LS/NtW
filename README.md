@@ -1,5 +1,5 @@
 # reSpell.js
-Spells provided numbers using JavaScript (Up to 36 digits, or a hundred decillion), blame floating point numbers, lol
+Spells provided numbers using JavaScript (Up to 36 digits, or a hundred decillion)
 
 ## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
 
