@@ -22,12 +22,12 @@ For this to work on your own HTML do the following:
  ```
 <p id="output"> Output for JS is here </p>
 <input id="input" type="number">
-<button onclick="spell(n)"> spell </button> 
+<button onclick="spell()"> spell </button> 
  ```
  
  example JavaScript to trigger `reSpell()`:
  ```
- <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"></script> // load reSpell.js
+ <script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"></script>
  <script>
  function spell() {
   n = document.getElementById("input").value; // gets value from an input tag with the id 'input' 	
