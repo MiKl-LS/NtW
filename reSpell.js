@@ -11,16 +11,15 @@ function reSpell(number) {
 		if ( l == 3 && n[1] == 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + onesArray[n.substr(1,2)]).trim(); }
 		if ( l == 3) { return (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]).trim(); }
 	}
-	n = number;
-	l = n.length;
+	n = number; l = n.length;
 	if (typeof(n) == "number") { n = n.toString(); }
-	if (parseInt(n) < 0) { n = number.replace(/-/g,""); ng = 1; } else {ng = 0;} 
-	dec = (n % 1).toFixed(2) * 100; dec = parseInt(Math.abs(dec)).toString(); decl = dec.length;
-	if ( l < 3) {
-		output = reader(n); 
+	d  = false; ng = false; // default values so JS doesnt scream 'Undefined'
+	if (n.match(/-/g) != null) { n = n.replace(/-/g,""); ng = true;	}
+	if (n.indexOf(".") != -1) { d = (n % 1).toFixed(2) * 100; d = parseInt(Math.abs(d)).toString(); n = n.substr("0",n.indexOf(".")); }
+	if ( l < 3) { output = reader(n);
 	} else {
-		output = []; currentValue = []
-		if ( l > 36) { return "ERROR: Unsupported Length"; } 
+		output = []; currentValue = []; currentDecimal = []
+		if ( l > 36 || (d > 0 && d.length > 2)) { return "ERROR: Unsupported Length"; }
 		modulus = l % 3; // modify the n to be divisible by 3
 		if (modulus == 1) { n = "00" + n; } else if (modulus == 2) { n = "0" + n; }
 		l = n.length; // redefine l after modifying
@@ -36,6 +35,6 @@ function reSpell(number) {
 		}
 		output = output.reverse().toString().replace(/,/g," "); // reverse the reversed output & remove the commas
 	} // append some stuff when needed
-	if (ng == 1) { output = "negative " + output;} else if (dec > 0) {output += " and " + reader(dec) + " hundredths "; }
+	if (ng != false) { output = "negative " + output;} else if (d != false) { output += " and " + reader(d,d.length) + " hundredths"; }
 	return output; 
 }
