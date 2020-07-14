@@ -1,13 +1,15 @@
 # reSpell.js
-Spells provided numbers using JavaScript (Up to 36 digits, or a hundred decillion)
+JavaScript library that spells provided numbers using JavaScript 
 
-## Note: This is still on beta. It's also incomplete. (there are more elegant, shorter and better scripts than this)
+Main code is on `reSpell.js`
 
-Majority of the code is on `reSpell.js`
+Because of JavaScript's floating point, numbers are passed as strings (there is also ~~a lazy~~ basic conversion but not for number 15+ digits long)
+- Current limit is 36 digits (hundred decillion, why do more?)
+- Limit for decimals is 2 digits (numbers with 3 or more digit decimals are rounded to 2 digits). Might redo later
 
-For this to work on your own HTML code do the following:
+For this to work on your own HTML do the following:
 
-- Link this script: (locally or from GitHub)
+- Link this script: (downloaded locally or from GitHub)
 ```
 <script src="reSpell.js">
 ```
