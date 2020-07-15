@@ -8,7 +8,7 @@ function reSpell(number) {
 		if ( l <= 2 && n < 20) { spelled = (onesArray[n]); }
 		if ( l == 2 && n > 19) { spelled = (tensArray[n.substr(0,1)] + onesArray[n.substr(1,1)]); }
 		if ( l == 3 && n[1] == 1 ) { spelled = (onesArray[n.substr(0,1)] + " hundred" + onesArray[n.substr(1,2)]); }
-		if ( l == 3) { spelled = (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]); }
+		if ( l == 3 && n[1] != 1 ) { spelled = (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]); }
 		return spelled.trim();
 	}
 	if (typeof(n) == "number") { n = n.toString(); }
