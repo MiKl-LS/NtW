@@ -1,4 +1,4 @@
-# reSpell.js
+# re*Spell*.js
 JavaScript library that spells provided numbers using JavaScript 
 
 Main code is on `reSpell.js`
@@ -32,9 +32,9 @@ For this to work on your own HTML do the following:
  function spell() {
   n = document.getElementById("input").value; // gets value from an input tag with the id 'input' 	
   // reSpell.js won't check if it's NaN (not a number), do it yourself manually
- if ( n.match('[a-zA-Z]') != null ) { 
-					document.getElementById("output").innerHTML = "NaN/Not a Number"
-					return;
+  if ( n.match('[a-zA-Z]') != null ) { 
+	document.getElementById("output").innerHTML = "NaN/Not a Number"
+	return;
   }
   document.getElementById("output").innerHTML = reSpell(n);
  }
