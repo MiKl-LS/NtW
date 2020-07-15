@@ -3,7 +3,6 @@ function reSpell(number) {
 	tensArray = [ "", "", " twenty", " thirty", " forty", " fifty", " sixty", " seventy", " eighty", " ninety" ]
 	prefixArray = [ "", " thousand", " million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion" ]
 	function reader(n) { // heart of reSpell.js
-		if ( n == "0") { return "zero"; } // (lines 6-7) some special cases 
 		n = parseInt(n).toString(); l = n.length;
 		if ( l <= 2 && n < 20) { spelled = (onesArray[n]); }
 		if ( l == 2 && n > 19) { spelled = (tensArray[n.substr(0,1)] + onesArray[n.substr(1,1)]); }
@@ -11,6 +10,7 @@ function reSpell(number) {
 		if ( l == 3 && n[1] != 1 ) { spelled = (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]); }
 		return spelled.trim();
 	}
+	if (number == "0") { return "zero"; } // Wont work when integrated with reader() so it's here instead
 	n = number.toString().replace(/^0+/, ''); l = n.length; // truncate the leading zeroes
 	d  = false; ng = false; // values so JS doesnt scream 'Undefined'
 	if (n.match(/-/g) != null) { n = n.replace(/-/g,""); ng = true;	}
