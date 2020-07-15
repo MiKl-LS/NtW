@@ -28,6 +28,10 @@
 			}
 			function Spell() {
 				n = document.getElementById("input").value;
+				if ( n.match('[a-zA-Z]') != null ) { 
+					document.getElementById("output").innerHTML = "NaN/Not a Number <i>(input <b>a number</b>)</i>"
+					return;
+				}
 				document.getElementById("output").innerHTML = reSpell(n);
 			}
 		</script>
