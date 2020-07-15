@@ -11,8 +11,7 @@ function reSpell(number) {
 		if ( l == 3 && n[1] != 1 ) { spelled = (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]); }
 		return spelled.trim();
 	}
-	if (typeof(n) == "number") { n = n.toString(); }
-	n = number.replace(/^0+/, '');	l = n.length; // truncate the leading zeroes
+	n = number.toString().replace(/^0+/, ''); l = n.length; // truncate the leading zeroes
 	d  = false; ng = false; // values so JS doesnt scream 'Undefined'
 	if (n.match(/-/g) != null) { n = n.replace(/-/g,""); ng = true;	}
 	if (n.indexOf(".") != -1) { d = (n % 1).toFixed(2) * 100; d = parseInt(Math.abs(d)).toString(); n = n.substr("0",n.indexOf(".")); }
@@ -35,8 +34,7 @@ function reSpell(number) {
 			}
 		}
 		output = output.reverse().toString().replace(/,/g," "); // reverse the reversed output & remove the commas
-		if (ng != false) { output = "negative " + output;}
-		if (d != false) { output += " and " + reader(d,d.length) + " hundredths"; }
 	}
+	if (ng != false) { output = "negative " + output;} if (d  != false) { output += " and " + reader(d) + " hundredths"; }
 	return output; 
 }
