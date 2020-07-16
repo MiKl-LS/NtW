@@ -25,9 +25,8 @@ function reSpell(number) {
 			currentValue[ind] = parseInt(n.substr(i,3));
 		}
 		for (currentValue.reverse(), i = 0; i < currentValue.length; i++) {
-			if (currentValue[i] == 0) { continue; } // prevents 'one thousand zero' from existing
 			val = reader(currentValue[i].toString());
-			if (val == "") { continue; } else { // do nothing (removes useless prefixes)
+			if (val == "" || currentValue[i] == 0) { continue; } else { // do nothing (removes useless values)
 				output.push(val + prefixArray[i]);
 			}
 		}
