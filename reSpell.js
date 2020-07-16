@@ -3,20 +3,20 @@ function reSpell(number) {
 	tensArray = [ "", "", " twenty", " thirty", " forty", " fifty", " sixty", " seventy", " eighty", " ninety" ]
 	prefixArray = [ "", " thousand", " million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion" ]
 	function reader(n) { // heart of reSpell.js
-		n = parseInt(n).toString(); l = n.length;
+		n = parseInt(n).toString(); l = n.length; // makes sure '012' is read as '12'
+		if ( n == "0") { return "zero"; }
 		if ( l <= 2 && n < 20) { return (onesArray[n]).trim(); }
 		if ( l == 2 && n > 19) { return (tensArray[n.substr(0,1)] + onesArray[n.substr(1,1)]).trim(); }
 		if ( l == 3 && n[1] == 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + onesArray[n.substr(1,2)]).trim(); }
 		if ( l == 3 && n[1] != 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]).trim(); }
 	}
-	if ( number[0] == "0" || number[0] == 0) { return "zero"; } 
-	n = number.toString().replace(/^0+/, ''); l = n.length; // truncate the leading zeroes
+	n = number.toString().replace(/\b0+/g, ""); l = n.length; // truncate the leading zeroes
+	if (n == "") { n = "0"; }
 	if ( l > 36) { return "Unsupported Length: " + l; } // prevent overflow lol
 	d  = false; ng = false; // values so JS doesnt scream 'Undefined'
 	if (n.match(/-/g) != null) { n = n.replace(/-/g,""); ng = true;	}
-	if (n.indexOf(".") != -1) { d = (n % 1).toFixed(2) * 100; d = parseInt(Math.abs(d)).toString(); n = n.substr("0",n.indexOf(".")); }
-	if ( l < 3) { output = reader(n);
-	} else {
+	if (n.indexOf(".") != -1) { d = Number(n.substr(n.indexOf("."))).toFixed(2).substr(2); n = n.substr("0",n.indexOf(".")); }
+	if ( l < 3) { output = reader(n); } else {
 		modulus = l % 3; 
 		if (modulus == 1) { n = "00" + n; } if (modulus == 2) { n = "0" + n; } // modify the n to be divisible by 3
 		l = n.length; // redefine l after modifying
@@ -25,14 +25,14 @@ function reSpell(number) {
 			currentValue[ind] = parseInt(n.substr(i,3));
 		}
 		for (currentValue.reverse(), i = 0; i < currentValue.length; i++) {
+			if (currentValue[i] == 0) { continue; } // prevents 'one thousand zero' from existing
 			val = reader(currentValue[i].toString());
-			if (val == "") { continue; // do nothing (removes useless prefixes)
-			} else {
+			if (val == "") { continue; } else { // do nothing (removes useless prefixes)
 				output.push(val + prefixArray[i]);
 			}
 		}
 		output = output.reverse().toString().replace(/,/g," "); // reverse the reversed output & remove the commas
 	}
-	if (ng != false) { output = "negative " + output;} if (d  != false) { output += " and " + reader(d) + " hundredths"; }
+	if (ng != false) { output = "negative " + output;} if (d != false) { output += " and " + reader(d) + " hundredths"; }
 	return output; 
 }
