@@ -4,7 +4,7 @@ function reSpell(number) {
 	prefixArray = [ "", " thousand", " million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion" ]
 	function reader(n) { // heart of reSpell.js
 		n = parseInt(n).toString(); l = n.length;
-		if ( l <= 2 && n < 20) { return (onesArray[n]).trim()s; }
+		if ( l <= 2 && n < 20) { return (onesArray[n]).trim(); }
 		if ( l == 2 && n > 19) { return (tensArray[n.substr(0,1)] + onesArray[n.substr(1,1)]).trim(); }
 		if ( l == 3 && n[1] == 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + onesArray[n.substr(1,2)]).trim(); }
 		if ( l == 3 && n[1] != 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]).trim(); }
