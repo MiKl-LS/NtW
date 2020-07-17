@@ -11,7 +11,7 @@ function reSpell(number) {
 		if ( l == 3 && n[1] != 1 ) { return (onesArray[n.substr(0,1)] + " hundred" + tensArray[n.substr(1,1)] + onesArray[n.substr(2,1)]).trim(); }
 	}
 	if ( number.length > 66) { return "Unsupported Length: " + number.length; } // prevent overflow lol
-	n = number.toString().replace(/\b0+/g, ''); if (n == "") { n = "0"; } // truncate the leading zeroes
+	n = number.toString().replace(/\b(0(?!\b))+/g, "") // truncate the leading zeroes
 	d  = false; ng = false; // values so JS doesnt scream 'Undefined'
 	if (n.match(/-/g) != null) { n = n.replace(/-/g,""); ng = true;	}
 	if (n.indexOf(".") != -1) { d = Number(n.substr(n.indexOf("."))).toFixed(2).substr(2); n = n.substr("0",n.indexOf(".")); }
