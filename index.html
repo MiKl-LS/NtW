@@ -12,15 +12,14 @@
 			<input id="input" type="number" onkeyup="Spell()" max="36" placeholder="input a number...">
 			<br class="w3-hide-medium w3-hide-large"> <br class="w3-hide-medium w3-hide-large">
 			<button onclick="randomNumber()" class="w3-btn w3-border w3-border-black w3-mobile"> Random number </button>
-			<br class="w3-hide-medium w3-hide-large">
-			<button onclick="speak()" class="w3-btn w3-border w3-border-black w3-mobile"> Read output (TTS) </button>
+			<button onclick="speak()" class="w3-btn w3-border w3-border-black w3-mobile w3-r"> Read output (TTS) </button>
 			<h3 id="output" class="w3-card w3-padding">Waiting for your input...</h3>
 			<br> 
 		</div>
 		<script src="reSpell.js"> </script>
 		<script>
 			function randomNumber() {
-				rnd = ""; limit = Math.floor(Math.random() * 36) + 1;
+				rnd = ""; limit = Math.floor(Math.random() * 66) + 1;
 				for (i = 1; i <= limit; i++ ) {
 					rnd += Math.floor(Math.random() * 10).toString();
 				}
