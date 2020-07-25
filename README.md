@@ -11,10 +11,10 @@ For this to work on your own HTML do the following:
 
 - Link this script: (downloaded locally or from GitHub)
 ```
-<script src="reSpell.js">
+<script src="reSpell.js"></script>
 ```
 ```
-<script src="https://mikl-ls.github.io/reSpell.js/reSpell.js">
+<script src="https://mikl-ls.github.io/reSpell.js/reSpell.js"></script>
 ```
  - Make a function that calls the `reSpell()` function 
  
