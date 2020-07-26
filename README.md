@@ -4,8 +4,7 @@ JavaScript library that spells provided numbers using JavaScript
 Main code is on `reSpell.js`
 
 Because of JavaScript's floating point, numbers are passed as strings (there is also ~~a lazy~~ basic conversion but not for number 15+ digits long)
-- Current limit is 66 digits (hundred vigintillion)
-- Limit for decimals is a hundered zillionths ~~lol~~
+- Current limit is 66 digits (132 combined) (hundred vigintillion/ths)
 
 For this to work on your own HTML do the following:
 
