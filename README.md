@@ -5,7 +5,7 @@ Main code is on `reSpell.js`
 
 Because of JavaScript's floating point, numbers are passed as strings (there is also ~~a lazy~~ basic conversion but not for number 15+ digits long)
 - Current limit is 66 digits (hundred vigintillion)
-- Limit for decimals is 2 digits or "hunderedths" (numbers with 3 or more digit decimals are rounded to 2 digits). Might redo later
+- Limit for decimals is a hundered zillionths ~~lol~~
 
 For this to work on your own HTML do the following:
 
